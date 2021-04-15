@@ -3,8 +3,7 @@
 ////////////////////////////////
 const router = require("express").Router()
 const bcrypt = require("bcryptjs")
-const User = require("../models/User")
-const Boulder = require("../models/User")
+const {User, Boulder} = require("../models/User")
 
 ///////////////////////////////
 // Custom Middleware Functions
@@ -32,7 +31,7 @@ const isAuthorized = (req, res, next) => {
 // ///////////////////////////////
 // // Router Specific Middleware
 // ////////////////////////////////
-// router.use(addUserToRequest)
+router.use(addUserToRequest)
 
 // ///////////////////////////////
 // // Router Routes
@@ -45,9 +44,9 @@ router.get("/dashboard", (req, res) => {
     res.render("dashboard")
 })
 
-router.get("/climbs", (req, res) => {
-    res.render("climbs")
-})
+// router.get("/climbs", (req, res) => {
+//     res.render("climbs")
+// })
 
 // AUTH RELATED ROUTES
 // SIGNUP ROUTE
@@ -105,6 +104,33 @@ router.get("/auth/logout", (req, res) => {
     // redirect to main page
     res.redirect("/")
 })
+
+// CLIMBS (INDEX)
+router.get("/climbs", (req, res) => {
+    Boulder.find({}, (error, allBoulders) => {
+        res.render("climbs", {
+            boulders: allBoulders,
+        });
+    });
+});
+
+// NEW
+router.get("/climbs/new", (req, res) => {
+    res.render("new")
+})
+
+// CREATE
+router.post("/climbs", (req, res) => {
+    // if (req.body.shipIsBroken === "on") {
+    //     req.body.shipIsBroken = true;
+    // } else {
+    //     req.body.shipIsBroken = false;
+    // }
+    Boulder.create(req.body, (error, createdBoulder) => {
+        console.log(createdBoulder)
+    res.redirect("/climbs");
+    });
+});
 
 ///////////////////////////////
 // Export Router

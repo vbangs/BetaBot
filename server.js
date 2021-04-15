@@ -19,7 +19,7 @@ const HomeRouter = require("./routes/index.js");
 
 // Sessions Middleware
 const session = require("express-session");
-// const connect = require("connect-mongo-session")(session);
+const connect = require("connect-mongodb-session")(session);
 
 // CREATE EXPRESS APPLICATION OBJECT
 const app = express();
@@ -28,29 +28,28 @@ const app = express();
 app.set("view engine", "ejs");
 
 // SET UP MIDDLEWARE
-app.use(cors());
+
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(morgan("tiny"));
-app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // SESSION MIDDLEWARE REGISTRATION
-// app.use(
-//     session({
-//       secret: SECRET,
-//       cookie: {
-//         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-//       },
-//       saveUninitialized: true, // create session regardless of changes
-//       resave: true, //save regardless of changes
-//       store: new connect({
-//         uri: process.env.MONGO,
-//         databaseName: "sessions",
-//         collection: "sessions",
-//       }),
-//     })
-//   );
+app.use(
+    session({
+      secret: SECRET,
+      cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+      },
+      saveUninitialized: true, // create session regardless of changes
+      resave: true, //save regardless of changes
+      store: new connect({
+        uri: process.env.MONGO,
+        databaseName: "sessions",
+        collection: "sessions",
+      }),
+    })
+  );
 
 // HomeRouter
 app.use("/", HomeRouter);

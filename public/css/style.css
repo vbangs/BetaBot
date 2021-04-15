@@ -27,7 +27,8 @@ h3 {
 }
 
 .image {
-    padding: 0px auto 10px auto;
+    max-width: 20%;
+    margin: auto 10% auto 10%;
 }
 
 button {

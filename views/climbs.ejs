@@ -3,7 +3,9 @@
     
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/head") %>
-
+    <nav>
+        <a href="/climbs/new">Log a New Entry</a>
+    </nav>
     <body>
 
         <!-- THE HEADER TAG PARTIAL -->
@@ -12,6 +14,8 @@
         <ul>
             <% for(let i = 0; i < boulders.length; i++){ %>
                 <li>
+                    <img class="image" src="<%= boulders[i].url; %>" />
+                    <br></br>
                     Name: <%=boulders[i].name; %> 
                     <br></br>
                     Grade: <%=boulders[i].grade; %>

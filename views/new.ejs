@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/head") %>
+
+    <body>
+
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header") %>
+        <h1>New Problem</h1>
+        <form action="/climbs" method="POST">
+            <input type="text" placeholder="upload photo" name="url" /><br/>
+            Name: <input type="text" name="name" /><br/>
+            Grade: <input type="text" name="grade" /><br/>
+            Location: <input type="text" name="location" /><br/>
+            <input type="submit" name="" value="Add Problem"/>
+        </form>
+        <!-- THE HEAD TAG PARTIAL -->
+        <%- include("partials/footer") %>
+    </body>
+</html>
