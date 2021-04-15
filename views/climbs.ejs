@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/head") %>
+
+    <body>
+
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header") %>
+        <h1>Boulder Problems</h1>
+        <ul>
+            <% for(let i = 0; i < boulders.length; i++){ %>
+                <li>
+                    Name: <%=boulders[i].name; %> 
+                    <br></br>
+                    Grade: <%=boulders[i].grade; %>
+                    <br></br>
+                    Location: <%=boulders[i].location; %>
+                    <br></br>
+                </li>
+            <% } %>
+        </ul>
+        <!-- THE HEAD TAG PARTIAL -->
+        <%- include("partials/footer") %>
+    </body>
+</html>

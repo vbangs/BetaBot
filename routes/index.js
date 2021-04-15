@@ -41,6 +41,14 @@ router.get("/", (req, res) => {
     res.render("index")
 })
 
+router.get("/dashboard", (req, res) => {
+    res.render("dashboard")
+})
+
+router.get("/climbs", (req, res) => {
+    res.render("climbs")
+})
+
 // AUTH RELATED ROUTES
 // SIGNUP ROUTE
 router.get("/auth/signup", (req, res) => {
@@ -78,7 +86,7 @@ router.post("/auth/login", async (req, res) => {
                 // add userID property to the session object
                 req.session.userId = user._id
                 // redirect
-                res.redirect("/profile")
+                res.redirect("/dashboard")
             } else {
                 res.json({error: "Password Does Not Match"})
             }
@@ -107,10 +115,10 @@ module.exports = router
 
  
 
-// // Images Index Route render view
-// router.get("/profile", isAuthorized, async (req, res) => {
+// Dashboard Route render view
+// router.get("/dashboard", isAuthorized, async (req, res) => {
 //     // pass req.user to our template
-//     res.render("profile", {
+//     res.render("dashboard", {
 //         boulders: req.user.boulders
 //     })
 // })
