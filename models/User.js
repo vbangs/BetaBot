@@ -2,7 +2,7 @@
 const {Schema, model} = require("../db/connection.js");
 
 // The Boulder Schema
-const BoulderSchema = new Schema({
+const Boulder = new Schema({
     url: String,
     name: {type: String, required: true},
     grade: {type: String, required: true},
@@ -33,18 +33,17 @@ const BoulderSchema = new Schema({
     heelhooking: Boolean,
     toehooking: Boolean,
     lockingoff: Boolean,
-    username: String,
-}, {timestamps: true});
+});
 
 // The User Schema
 const UserSchema = new Schema({
     username: {type: String, unique: true, required: true},
     password: {type: String, required: true},
+    boulders: [Boulder]
 }, {timestamps: true});
 
 // The User Model
 const User = model("User", UserSchema);
-const Boulder = model("Boulder", BoulderSchema);
 
 // Export the User Model
-module.exports = {User, Boulder}
+module.exports = User

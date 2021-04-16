@@ -3,7 +3,7 @@
 ////////////////////////////////
 const router = require("express").Router()
 const bcrypt = require("bcryptjs")
-const {User, Boulder} = require("../models/User")
+const User = require("../models/User")
 
 ///////////////////////////////
 // Custom Middleware Functions
@@ -103,31 +103,38 @@ router.get("/auth/logout", (req, res) => {
     req.session.userId = null
     // redirect to main page
     res.redirect("/")
-})
+});
 
 // CLIMBS (INDEX)
-router.get("/climbs", (req, res) => {
-    Boulder.find({}, (error, allBoulders) => {
+router.get("/climbs", isAuthorized, async (req, res) => {
+    // Boulder.find({}, (error, userBoulders) => {
         res.render("climbs", {
-            boulders: allBoulders,
-        });
+            boulders: req.user.boulders
     });
 });
 
 // NEW
-router.get("/climbs/new", (req, res) => {
+router.get("/climbs/new", isAuthorized, async (req, res) => {
     res.render("new")
-})
+});
 
 // DELETE
-router.delete("/climbs/:id", (req, res) => {
+router.delete("/climbs/:id", isAuthorized, (req, res) => {
     Boulder.findByIdAndRemove(req.params.id, (error, data) => {
         res.redirect("/climbs");
     })
-})
+});
+
+// UPDATE
+router.put("/climbs/id", isAuthorized, async (req, res) => {
+    res.render("show", {
+        boulder: req.user.boulders
+    })
+});
 
 // CREATE
-router.post("/climbs", (req, res) => {
+router.post("/climbs", isAuthorized, async (req, res) => {
+    const user = await User.findOne({username: req.user.username})
     if (req.body.slab === "on") {
         req.body.slab = true;
     } else {
@@ -258,17 +265,16 @@ router.post("/climbs", (req, res) => {
     } else {
         req.body.lockingoff = false;
     }
-    Boulder.create(req.body, (error, createdBoulder) => {
-        console.log(createdBoulder)
-    res.redirect("/climbs");
-    });
+    user.boulders.push(req.body);
+    await user.save();
+    res.redirect("/climbs")
 });
 
 // SHOW
-router.get('/climbs/:id', (req, res) => {
+router.get("/climbs/id", isAuthorized, async (req, res) => {
     Boulder.findById(req.params.id, (error, foundBoulder) => { 
         res.render("show", {
-        boulder: foundBoulder
+            boulder: foundBoulder
         });
     });
 });
@@ -277,48 +283,3 @@ router.get('/climbs/:id', (req, res) => {
 // Export Router
 ////////////////////////////////
 module.exports = router
-
-
-
- 
-
-// Dashboard Route render view
-// router.get("/dashboard", isAuthorized, async (req, res) => {
-//     // pass req.user to our template
-//     res.render("dashboard", {
-//         boulders: req.user.boulders
-//     })
-// })
-
-// // DELETE
-// router.delete("/profile/:id", isAuthorized, async (req, res) => {
-//     const user = await User.findOne({username: req.user.username})
-//     user.boulders.splice(req.body)
-//     // await user.save()
-//     // Image.findByIdAndRemove(req.params.id, (error, data) => {
-//         res.redirect("/profile");
-// })
-
-// // Update Page route render view
-// router.get("/new", isAuthorized, async (req, res) => {
-//     res.render("new", {
-//         boulders: req.user.boulders
-//     })
-// })
-
-// // Images create route when form submitted
-// router.post("/profile", isAuthorized, async (req, res) => {
-//     // fetch up-to-date user
-//     const user = await User.findOne({username: req.user.username})
-//     // push new image and save
-//     user.boulders.push(req.body)
-//     await user.save()
-//     // redirect back to images index
-//     res.redirect("/profile")
-// })
-
-
-// ///////////////////////////////
-// // Export Router
-// ////////////////////////////////
-// module.exports = router
