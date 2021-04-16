@@ -27,8 +27,8 @@ h3 {
 }
 
 .image {
-    max-width: 20%;
-    margin: auto 10% auto 10%;
+    min-width: 400px;
+    max-width: 500px;
 }
 
 button {
@@ -43,6 +43,14 @@ button {
 .container {
     text-align: center;
     margin: 30px 5% 0px 5%;
+}
+
+.column {
+    margin: auto 5% auto 5%;
+}
+
+#photos {
+    margin: 0 0 0 0;
 }
 
 .basic-form {
