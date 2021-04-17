@@ -19,112 +19,90 @@
                                                 <strong>Rock Face:</strong></br>
                                                 <% if (boulder[i].slab === true) { %>
                                                     slab</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                     <% if (boulder[i].vertical === true) { %>
                                                     vertical</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                     <% if (boulder[i].overhung === true) { %>
                                                     overhung</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 </br>
                                                 <strong>Holds:</strong></br>
                                                 <% if (boulder[i].jugs === true) { %>
                                                     jugs</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].crimps === true) { %>
                                                     crimps</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].slopers === true) { %>
                                                     slopers</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].pinches === true) { %>
                                                     pinches</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].pockets === true) { %>
                                                     pockets</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].volumes === true) { %>
                                                     volumes</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].cracks === true) { %>
                                                     cracks</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].aretes === true) { %>
                                                     aretes</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 </br>
                                                 <strong>Techniques Used:</strong></br> 
                                                 <% if (boulder[i].edging === true) { %>
                                                     edging</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].smearing === true) { %>
                                                     smearing</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].flagging === true) { %>
                                                     flagging</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].stemming === true) { %>
                                                     stemming</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].bathanging === true) { %>
                                                     bat-hanging</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].liebacking === true) { %>
                                                     lie-backing</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].mantling === true) { %>
                                                     mantling</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].dropkneeing === true) { %>
                                                     drop-kneeing</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].sidepulling === true) { %>
                                                     side-pulling</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].palming === true) { %>
                                                     palming</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].dynoing === true) { %>
                                                     dyno-ing</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].gastoning === true) { %>
                                                     gastoning</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].heelhooking === true) { %>
                                                     heel-hooking</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].toehooking === true) { %>
                                                     toe-hooking</br>
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
                                                 <% if (boulder[i].lockingoff === true) { %>
                                                     locking-off
-                                                <% } else { %>
-                                                <% } %>
+                                                <% } else {} %>
+                                                <strong><%=boulder[i].name; %></strong>  <%=boulder[i].grade; %></br>    
+                                                <small><%=boulder[i].location; %></small><br></br>
+                                                <img class="image" src="<%= boulders[i].url; %>" /></br>
+                                                <strong>Rock Face:</strong></br>
                                             </p>   
                                         </div>
                                         </div>

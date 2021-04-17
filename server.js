@@ -9,8 +9,6 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 const cors = require("cors");
 
-
-
 // GET PORT FROM ENV OR DEFAULT PORT
 const PORT = process.env.PORT || "3000";
 const SECRET = process.env.SECRET || "secret";
@@ -28,7 +26,6 @@ const app = express();
 app.set("view engine", "ejs");
 
 // SET UP MIDDLEWARE
-
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use(morgan("tiny"));
