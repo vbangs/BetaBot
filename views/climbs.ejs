@@ -7,9 +7,21 @@
 
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header") %>
-        <h1 id="start-sub">My Boulder Problems</h1>
-        <a href="/climbs/new">new climb</a>
-        <a href="/climbs/edit">edit feed</a>
+        <section class="hero is-smaller has-background-grey-light">
+            <div class="hero-body">
+              <p class="title" id="start-sub">
+                My Boulder Problems
+              </p>
+            </div>
+        </section>
+        <section class="hero is-small has-background-white-ter">
+            <div class="hero-body">
+              <p class="title" id="start-sub">
+                <a href="/climbs/new">new climb</a>&emsp;&emsp;
+                <a href="/climbs/edit">edit feed</a>
+              </p>
+            </div>
+        </section>
         <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-around">
             <% for(let i = 0; i < boulders.length; i++){ %> 
                 <div class="card">
@@ -26,7 +38,7 @@
                                 <small><time datetime="2021-1-1"><%=boulders[i].date; %></time></small><br></br>
                             </p>
                             <p class="media-text">   
-                                <strong>Rock Face:</strong>&ensp;
+                                <strong>Rock Face:</strong>
                                 <% if (boulders[i].slab === true) { %>
                                     slab &ensp;
                                 <% } else { %>
