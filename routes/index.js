@@ -5,6 +5,7 @@ const router = require("express").Router()
 const bcrypt = require("bcryptjs")
 const User = require("../models/User")
 
+
 ///////////////////////////////
 // Custom Middleware Functions
 ////////////////////////////////
@@ -43,10 +44,6 @@ router.get("/", (req, res) => {
 router.get("/dashboard", (req, res) => {
     res.render("dashboard")
 })
-
-// router.get("/climbs", (req, res) => {
-//     res.render("climbs")
-// })
 
 // AUTH RELATED ROUTES
 // SIGNUP ROUTE
@@ -107,7 +104,6 @@ router.get("/auth/logout", (req, res) => {
 
 // CLIMBS (INDEX)
 router.get("/climbs", isAuthorized, async (req, res) => {
-    // Boulder.find({}, (error, userBoulders) => {
         res.render("climbs", {
             boulders: req.user.boulders
     });
@@ -120,13 +116,154 @@ router.get("/climbs/new", isAuthorized, async (req, res) => {
 
 // DELETE
 router.delete("/climbs/:id", isAuthorized, (req, res) => {
-    Boulder.findByIdAndRemove(req.params.id, (error, data) => {
-        res.redirect("/climbs");
+    const user = req.user
+    const index = user.boulders.findIndex((boulder) => {
+        return req.params.id === `${boulder._id}`
     })
-});
+    user.boulders.splice(index, 1)
+    user.save()
+    res.redirect("/climbs")
+    });
+
 
 // UPDATE
 router.put("/climbs/id", isAuthorized, async (req, res) => {
+    if (req.body.slab === "on") {
+        req.body.slab = true;
+    } else {
+        req.body.slab = false;
+    }
+    if (req.body.vertical === "on") {
+        req.body.vertical = true;
+    } else {
+        req.body.vertical = false;
+    }
+    if (req.body.overhung === "on") {
+        req.body.overhung = true;
+    } else {
+        req.body.overhung = false;
+    }
+    if (req.body.jugs === "on") {
+        req.body.jugs = true;
+    } else {
+        req.body.jugs = false;
+    }
+    if (req.body.crimps === "on") {
+        req.body.crimps = true;
+    } else {
+        req.body.crimps = false;
+    }
+    if (req.body.slopers === "on") {
+        req.body.slopers = true;
+    } else {
+        req.body.slopers = false;
+    }
+    if (req.body.pinches === "on") {
+        req.body.pinches = true;
+    } else {
+        req.body.pinches = false;
+    }
+    if (req.body.pockets === "on") {
+        req.body.pockets = true;
+    } else {
+        req.body.pockets = false;
+    }
+    if (req.body.volumes === "on") {
+        req.body.volumes = true;
+    } else {
+        req.body.volumes = false;
+    }
+    if (req.body.cracks === "on") {
+        req.body.cracks = true;
+    } else {
+        req.body.cracks = false;
+    }
+    if (req.body.aretes === "on") {
+        req.body.aretes = true;
+    } else {
+        req.body.aretes = false;
+    }
+    if (req.body.edging === "on") {
+        req.body.edging = true;
+    } else {
+        req.body.edging = false;
+    }
+    if (req.body.smearing === "on") {
+        req.body.smearing = true;
+    } else {
+        req.body.smearing = false;
+    }
+    if (req.body.flagging === "on") {
+        req.body.flagging = true;
+    } else {
+        req.body.flagging = false;
+    }
+    if (req.body.stemming === "on") {
+        req.body.stemming = true;
+    } else {
+        req.body.stemming = false;
+    }
+    if (req.body.bathanging === "on") {
+        req.body.bathanging = true;
+    } else {
+        req.body.bathanging = false;
+    }
+    if (req.body.liebacking === "on") {
+        req.body.liebacking = true;
+    } else {
+        req.body.liebacking = false;
+    }
+    if (req.body.mantling === "on") {
+        req.body.mantling = true;
+    } else {
+        req.body.mantling = false;
+    }
+    if (req.body.dropkneeing === "on") {
+        req.body.dropkneeing = true;
+    } else {
+        req.body.dropkneeing = false;
+    }
+    if (req.body.sidepulling === "on") {
+        req.body.sidepulling = true;
+    } else {
+        req.body.sidepulling = false;
+    }
+    if (req.body.palming === "on") {
+        req.body.palming = true;
+    } else {
+        req.body.palming = false;
+    }
+    if (req.body.dynoing === "on") {
+        req.body.dynoing = true;
+    } else {
+        req.body.dynoing = false;
+    }
+    if (req.body.gastoning === "on") {
+        req.body.gastoning = true;
+    } else {
+        req.body.gastoning = false;
+    }
+    if (req.body.heelhooking === "on") {
+        req.body.heelhooking = true;
+    } else {
+        req.body.heelhooking = false;
+    }
+    if (req.body.toehooking === "on") {
+        req.body.toehooking = true;
+    } else {
+        req.body.toehooking = false;
+    }
+    if (req.body.lockingoff === "on") {
+        req.body.lockingoff = true;
+    } else {
+        req.body.lockingoff = false;
+    }
+    const user = req.user
+    const index = user.boulders.findIndex((boulder) => {
+        return req.params.id === `${boulder._id}`
+    })
+    user.boulders[index] = {...user.boulders[index], ...req.body}
+    user.save()
     res.render("show", {
         boulder: req.user.boulders
     })
@@ -270,14 +407,23 @@ router.post("/climbs", isAuthorized, async (req, res) => {
     res.redirect("/climbs")
 });
 
+// EDIT
+router.get("/climbs/:id/edit", (req, res) => {
+    const user = req.user
+    const index = user.boulders.findIndex((boulder) => {
+        return req.params.id === `${boulder._id}`
+    })
+    	res.render("/climbs/:id/edit")
+});
+
+
 // SHOW
 router.get("/climbs/id", isAuthorized, async (req, res) => {
-    Boulder.findById(req.params.id, (error, foundBoulder) => { 
+
         res.render("show", {
             boulder: foundBoulder
         });
     });
-});
 
 ///////////////////////////////
 // Export Router

@@ -7,6 +7,7 @@ const Boulder = new Schema({
     name: {type: String, required: true},
     grade: {type: String, required: true},
     location: String,
+    date: String,
     slab: Boolean,
     vertical: Boolean, 
     overhung: Boolean,

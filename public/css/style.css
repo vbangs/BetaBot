@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+#start {
+    font-family: 'Manrope', sans-serif;
+    font-size: 80px;
+    padding: 25% 10px 10px 10px;
+}
+
+#start-sub {
+    font-size: 30px;
+}
 
 h1 {
-    font-family: 'Roboto', sans-serif;
-    padding: 10px 10px 10px 10px;
+    font-family: 'Manrope', sans-serif;
+    padding: 20px 10px 10px 10px;
 }
 
 #home-title {
@@ -18,8 +28,9 @@ h1 {
 }
 
 h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: bold;
+    font-size: 40px;
  }
 
 h3 {
@@ -32,26 +43,46 @@ h3 {
 }
 
 button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Manrope', sans-serif;
     margin: 0px auto 10px auto;
 }
 
 .button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
 }
 
-.container {
+.card {
+    width: 275px;
+    height: 650px;
+    margin: 0px auto 50px auto;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.media-text {
+    text-align: left;
+    margin: auto 5% 5% 5%;
+}
+
+.section {
     text-align: center;
-    margin: 30px 5% 0px 5%;
+    margin: 2% 5%;
 }
 
 .column {
     margin: auto 5% auto 5%;
 }
 
-#photos {
-    margin: 0 0 0 0;
-}
+img {
+    width: 275px;
+    height: 275px;
+    object-fit: cover;
+  }
 
 .basic-form {
     text-align: center;

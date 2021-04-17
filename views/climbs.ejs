@@ -3,169 +3,164 @@
     
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/head") %>
-    <nav>
-        <a href="/climbs/new">Log a New Entry</a>
-        <a href="/auth/logout"><button class="button is-smaller is-rounded">logout</button></a>
-    </nav>
     <body class="has-background-white-ter">
 
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header") %>
-        <h1>Boulder Problems</h1>
+        <h1 id="start-sub">My Boulder Problems</h1>
+        <a href="/climbs/new">new climb</a>
+        <a href="/climbs/edit">edit feed</a>
+        <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-around">
             <% for(let i = 0; i < boulders.length; i++){ %> 
-                <div class="columns">
-                <div class="column is-half is-left">
-                            <div class="box">
-                                <article class="media">       
-                                    <div class="media-content">
-                                        <div class="content">
-                                            <p>
-                                                <a href="/climbs/<%=boulders[i].id; %>"><strong><%=boulders[i].name; %></strong></a>  <%=boulders[i].grade; %></br>    
-                                                <small><%=boulders[i].location; %></small><br></br>
-                                                <img class="image" src="<%= boulders[i].url; %>" /></br>
-                                                <strong>Rock Face:</strong></br>
-                                                <% if (boulders[i].slab === true) { %>
-                                                    slab</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                    <% if (boulders[i].vertical === true) { %>
-                                                    vertical</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                    <% if (boulders[i].overhung === true) { %>
-                                                    overhung</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                </br>
-                                                <strong>Holds:</strong></br>
-                                                <% if (boulders[i].jugs === true) { %>
-                                                    jugs</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].crimps === true) { %>
-                                                    crimps</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].slopers === true) { %>
-                                                    slopers</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].pinches === true) { %>
-                                                    pinches</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].pockets === true) { %>
-                                                    pockets</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].volumes === true) { %>
-                                                    volumes</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].cracks === true) { %>
-                                                    cracks</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].aretes === true) { %>
-                                                    aretes</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                </br>
-                                                <strong>Techniques Used:</strong></br> 
-                                                <% if (boulders[i].edging === true) { %>
-                                                    edging</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].smearing === true) { %>
-                                                    smearing</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].flagging === true) { %>
-                                                    flagging</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].stemming === true) { %>
-                                                    stemming</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].bathanging === true) { %>
-                                                    bat-hanging</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].liebacking === true) { %>
-                                                    lie-backing</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].mantling === true) { %>
-                                                    mantling</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].dropkneeing === true) { %>
-                                                    drop-kneeing</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].sidepulling === true) { %>
-                                                    side-pulling</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].palming === true) { %>
-                                                    palming</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].dynoing === true) { %>
-                                                    dyno-ing</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].gastoning === true) { %>
-                                                    gastoning</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].heelhooking === true) { %>
-                                                    heel-hooking</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].toehooking === true) { %>
-                                                    toe-hooking</br>
-                                                <% } else { %>
-                                                <% } %>
-                                                <% if (boulders[i].lockingoff === true) { %>
-                                                    locking-off
-                                                <% } else { %>
-                                                <% } %>
-                                            </p>   
-                                        </div>
-                                        </div>
-                               
-                                        <nav class="level is-mobile">
-                                            <div class="level-left">
-                                              <a class="level-item" aria-label="reply">
-                                                <span class="icon is-small">
-                                                  <i class="fas fa-reply" aria-hidden="true"></i>
-                                                </span>
-                                              </a>
-                                              <a class="level-item" aria-label="retweet">
-                                                <span class="icon is-small">
-                                                  <i class="fas fa-retweet" aria-hidden="true"></i>
-                                                </span>
-                                              </a>
-                                              <a class="level-item" aria-label="like">
-                                                <span class="icon is-small">
-                                                  <i class="fas fa-heart" aria-hidden="true"></i>
-                                                </span>
-                                              </a>
-                                            </div>
-                                          </nav>
-                                    </div>
-                                    
-                                </article>
-                            </div>
-                            
-                       
+                <div class="card">
+                    <header class="card-header">   
+                        <p class="card-header-title">
+                            <a href="/climbs/<%=boulders[i].id; %>"><strong><%=boulders[i].name; %></strong></a> &nbsp; <%=boulders[i].grade; %>
+                        </p>
+                    </header>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <img class="image" src="<%= boulders[i].url; %>" />
+                                <small><%=boulders[i].location; %></small></br>
+                                <small><time datetime="2021-1-1"><%=boulders[i].date; %></time></small><br></br>
+                            </p>
+                            <p class="media-text">   
+                                <strong>Rock Face:</strong>&ensp;
+                                <% if (boulders[i].slab === true) { %>
+                                    slab &ensp;
+                                <% } else { %>
+                                <% } %>
+                                    <% if (boulders[i].vertical === true) { %>
+                                    vertical &ensp;
+                                <% } else { %>
+                                <% } %>
+                                    <% if (boulders[i].overhung === true) { %>
+                                    overhung
+                                <% } else { %>
+                                <% } %>
+                                <br></br>
+                                <strong>Holds:</strong>&ensp;
+                                <% if (boulders[i].jugs === true) { %>
+                                    jugs &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].crimps === true) { %>
+                                    crimps &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].slopers === true) { %>
+                                    slopers &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].pinches === true) { %>
+                                    pinches &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].pockets === true) { %>
+                                    pockets &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].volumes === true) { %>
+                                    volumes &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].cracks === true) { %>
+                                    cracks &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].aretes === true) { %>
+                                    aretes &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <br></br>
+                                <strong>Techniques Used:</strong>&ensp; 
+                                <% if (boulders[i].edging === true) { %>
+                                    edging &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].smearing === true) { %>
+                                    smearing &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].flagging === true) { %>
+                                    flagging &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].stemming === true) { %>
+                                    stemming &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].bathanging === true) { %>
+                                    bat-hanging &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].liebacking === true) { %>
+                                    lie-backing &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].mantling === true) { %>
+                                    mantling &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].dropkneeing === true) { %>
+                                    drop-kneeing &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].sidepulling === true) { %>
+                                    side-pulling &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].palming === true) { %>
+                                    palming &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].dynoing === true) { %>
+                                    dyno-ing &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].gastoning === true) { %>
+                                    gastoning &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].heelhooking === true) { %>
+                                    heel-hooking &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].toehooking === true) { %>
+                                    toe-hooking &ensp;
+                                <% } else { %>
+                                <% } %>
+                                <% if (boulders[i].lockingoff === true) { %>
+                                    locking-off
+                                <% } else { %>
+                                <% } %>
+                            </p>   
                         </div>
-        
                     </div>
-                        <% } %>
+                    <nav class="level is-mobile">
+                        <div class="level-left">
+                          <a class="level-item" aria-label="reply">
+                            <span class="icon is-small">
+                              <i class="fas fa-reply" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                          <a class="level-item" aria-label="retweet">
+                            <span class="icon is-small">
+                              <i class="fas fa-retweet" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                          <a class="level-item" aria-label="like">
+                            <span class="icon is-small">
+                              <i class="fas fa-heart" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                        </div>
+                    </nav>          
+                </div>
+            <% } %>
+        </div>
         <!-- THE HEAD TAG PARTIAL -->
-        <%- include("partials/footer") %>
+            <%- include("partials/footer") %>
     </body>
 </html>

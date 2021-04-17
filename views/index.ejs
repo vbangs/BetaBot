@@ -3,43 +3,16 @@
     
     <!-- THE HEAD TAG PARTIAL -->
     <%- include("partials/head") %>
-    <section class="hero has-background-white-ter is-halfheight">
-        <!-- Hero head: will stick at the top -->
-        <div class="hero-head">
-          <header class="navbar">
-            <div class="container">
-              <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdnafitness.net%2Fwp-content%2Fuploads%2F2015%2F01%2Ftime-icon-TBD.png&f=1&nofb=1" width="50">
-                </a>
-                <span class="navbar-burger" data-target="navbarMenuHeroC">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-              </div>
-              <div id="navbarMenuHeroC" class="navbar-menu">
-                <div class="navbar-end">
-                  <span class="navbar-item">
-                    <a class="button" href="/auth/login">
-                      <span class="icon">
-                        <i class="login"></i>
-                      </span>
-                      <span>Login</span>
-                    </a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </header>
-          <br></br>
-          <br></br>
-            </br>
+    <section class="hero has-background-white-ter is-fullheight">
+
           <container>
-              <h1 class="title has-text-centered">betaBot</h1>
-              <h2 class="subtitle has-text-centered">a simple app for tracking bouldering progress</h2>
+              <h1 id="start" class="title has-text-centered">betaBot</h1>
+              <h2 id="start-sub" class="subtitle has-text-centered">a simple bouldering skills tracker</h2>
               <br></br>
-          </container>
+              <div class="center">
+                <button class="button is-medium is-rounded"><a href="/auth/login">login</a></button>
+              </div>
+            </container>
         </div>
     </section>
         <!-- THE HEAD TAG PARTIAL -->
