@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/head") %>
+
+    <body>
+
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header") %>
+        <main>
+            <div class="new-problem">
+              <div class="notification has-background-whiter">
+              <h1 class="title is-3">edit problem</h1>
+            <form action="/climbs/<%=boulder.id%>?_method=PUT" method="POST">
+            <input type="text" placeholder="upload photo" name="url" value="<%=boulder.url%>"/><br></br>
+            <strong>Name:</strong> <input type="text" name="name" value="<%=boulder.name%>"/></br>
+            <strong>Grade:</strong> <input type="text" name="grade" value="<%=boulder.grade%>"/><br/>
+            <strong>Location:</strong> <input type="text" name="location" value="<%=boulder.location%>"/><br/>
+            <strong>Date:</strong> DD Mon YYYY <input type="text" name="date" value="<%=boulder.date%>"/><br/>
+            <br></br>
+            <strong>Rock Face:</strong></br>
+                <div class="columns">
+                <div class="column">
+                <input type="checkbox" name="slab" 
+                <% if(boulder.slab === true){ %>
+                    checked
+                <% } %>
+                /> Slab 
+                <br/>
+                </div>
+                <div class="column">
+                <input type="checkbox" name="vertical" 
+                <% if(boulder.vertical === true){ %>
+                    checked
+                <% } %>/> Vertical <br/>
+                </div>
+                <div class="column">
+                <input type="checkbox" name="overhung" 
+                <% if(boulder.overhung === true){ %>
+                    checked
+                <% } %>/> Overhung
+                </div>
+                </div>
+                </br>
+            <strong>Holds:</strong></br>
+                <div class="columns">
+                <div class="column">
+                <input type="checkbox" name="jugs" 
+                <% if(boulder.jugs === true){ %>
+                    checked
+                <% } %>/> Jugs  
+                <br/>
+                <input type="checkbox" name="crimps" 
+                <% if(boulder.crimps === true){ %>
+                    checked
+                <% } %>/> Crimps  
+                <br/>
+                <input type="checkbox" name="slopers" 
+                <% if(boulder.slopers === true){ %>
+                    checked
+                <% } %>/> Slopers
+                <br/>
+                </div>
+                <div class="column">
+                <input type="checkbox" name="pinches" 
+                <% if(boulder.pinches === true){ %>
+                    checked
+                <% } %>/> Pinches  
+                <br/>
+                <input type="checkbox" name="pockets" 
+                <% if(boulder.pockets === true){ %>
+                    checked
+                <% } %>/> Pockets  
+                <br/>
+                <input type="checkbox" name="volumes" 
+                <% if(boulder.volumes === true){ %>
+                    checked
+                <% } %>/> Volumes
+                <br/>
+                </div>
+                <div class="column">
+                <input type="checkbox" name="cracks" 
+                <% if(boulder.cracks === true){ %>
+                    checked
+                <% } %>/> Cracks  
+                <br/>
+                <input type="checkbox" name="aretes" 
+                <% if(boulder.aretes === true){ %>
+                    checked
+                <% } %>/> Aretes
+                </div>
+                </div>
+                </br>
+            <strong>Techniques Used:</strong></br>
+                <div class="columns">
+                <div class="column">
+                <input type="checkbox" name="edging" 
+                <% if(boulder.edging === true){ %>
+                    checked
+                <% } %>/> Edging 
+                <br/>
+                <input type="checkbox" name="smearing" 
+                <% if(boulder.smearing === true){ %>
+                    checked
+                <% } %>/> Smearing 
+                <br/>
+                <input type="checkbox" name="flagging" 
+                <% if(boulder.flagging === true){ %>
+                    checked
+                <% } %>/> Flagging
+                <br/>
+                <input type="checkbox" name="stemming" 
+                <% if(boulder.stemming === true){ %>
+                    checked
+                <% } %>/> Stemming 
+                <br/>
+                <input type="checkbox" name="bathanging" 
+                <% if(boulder.bathanging === true){ %>
+                    checked
+                <% } %>/> Bat-Hanging 
+                <br/>
+                </div>
+                <div class="column">
+                <input type="checkbox" name="liebacking" 
+                <% if(boulder.liebacking === true){ %>
+                    checked
+                <% } %>/> Lie-Backing
+                <br/>
+                <input type="checkbox" name="mantling" 
+                <% if(boulder.mantling === true){ %>
+                    checked
+                <% } %>/> Mantling 
+                <br/>
+                <input type="checkbox" name="dropkneeing" 
+                <% if(boulder.dropkneeing === true){ %>
+                    checked
+                <% } %>/> Drop-Kneeing 
+                <br/>
+                <input type="checkbox" name="sidepulling" 
+                <% if(boulder.sidepulling === true){ %>
+                    checked
+                <% } %>/> Side-Pulling
+                <br/>
+                <input type="checkbox" name="palming" 
+                <% if(boulder.palming === true){ %>
+                    checked
+                <% } %>/> Palming 
+                <br/>
+                </div>
+                <div class="column">
+                <input type="checkbox" name="dynoing" 
+                <% if(boulder.dynoing === true){ %>
+                    checked
+                <% } %>/> Dyno-ing 
+                <br/>
+                <input type="checkbox" name="gastoning" 
+                <% if(boulder.gastoning === true){ %>
+                    checked
+                <% } %>/> Gastoning
+                <br/>
+                <input type="checkbox" name="heelhooking" 
+                <% if(boulder.heelhooking === true){ %>
+                    checked
+                <% } %>/> Heel-Hooking 
+                <br/>
+                <input type="checkbox" name="toehooking" 
+                <% if(boulder.toehooking === true){ %>
+                    checked
+                <% } %>/> Toe-Hooking 
+                <br/>
+                <input type="checkbox" name="lockingoff" 
+                <% if(boulder.lockingoff === true){ %>
+                    checked
+                <% } %>/> Locking-Off
+                <br/>
+                </div>
+                </div>
+                <br></br>
+            <input type="submit" name="" value="submit"/><br></br>
+        </form>
+        </div>
+        </div>
+        </main>
+        <!-- THE HEAD TAG PARTIAL -->
+        <%- include("partials/footer") %>
+    </body>
+</html>

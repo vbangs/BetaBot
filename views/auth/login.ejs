@@ -4,12 +4,9 @@
   <%- include("../partials/head") %>
 
   <body>
-    <!-- THE HEADER TAG PARTIAL -->
-    <%- include("../partials/header") %>
-    <main>
-    <div class="section">
+    <main class="hero has-background-white-ter is-fullheight">
       <div class="notification has-background-whiter">
-      <h1 class="title is-3">user login</h1>
+      <h1 id="login-h1" class="title is-3">user login</h1>
       <form class="basic-form" action="/auth/login" method="post">
         <input class="input is-medium is-rounded" type="text" placeholder="username" name="username" />
         <br></br>
@@ -17,7 +14,7 @@
         <br></br>
         <input class="button is-medium is-rounded" type="submit" value="login" />
       </form>
-    </div>
+      <br></br>
       <h3>Don't have an account? <a href="/auth/signup">Sign up</a></h3>
     </div>
     </main>

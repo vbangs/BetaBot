@@ -4,11 +4,9 @@
   <%- include("../partials/head") %>
 
   <body>
-    <!-- THE HEADER TAG PARTIAL -->
-    <%- include("../partials/header") %>
-    <main class="section">
+    <main class="hero has-background-white-ter is-fullheight">
       <div class="notification has-background-whiter">
-      <h1 class="title is-3">create account</h1>
+      <h1 id="login-h1" class="title is-3">create account</h1>
       <form class="basic-form" action="/auth/signup" method="post">
         <input class="input is-medium is-rounded" type="text" placeholder="username" name="username" />
         <br></br>
