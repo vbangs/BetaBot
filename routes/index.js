@@ -122,7 +122,7 @@ router.delete("/climbs/:id", isAuthorized, (req, res) => {
 
 
 // UPDATE
-router.put("/climbs/id", isAuthorized, async (req, res) => {
+router.put("/climbs/:id", isAuthorized, async (req, res) => {
     if (req.body.slab === "on") {
         req.body.slab = true;
     } else {
@@ -257,10 +257,10 @@ router.put("/climbs/id", isAuthorized, async (req, res) => {
     const index = user.boulders.findIndex((boulder) => {
         return req.params.id === `${boulder._id}`
     })
-    user.boulders[index].push = {...user.boulders[index], ...req.body}
-    await user.save();
-    res.redirect("/climbs", {
-        boulder: user.boulders[index]
+    user.boulders[index] = {...user.boulders[index], ...req.body}
+    user.save();
+    res.render("climbs", {
+        boulders: req.user.boulders
     })
 });
 
