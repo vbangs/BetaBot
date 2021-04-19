@@ -18,7 +18,6 @@
             <div class="hero-body">
               <p class="title" id="start-sub">
                 <a href="/climbs/new">new climb</a>&emsp;&emsp;
-                <a href="/climbs/edit">edit feed</a>
               </p>
             </div>
         </section>
@@ -32,11 +31,14 @@
                     </header>
                     <div class="media-content">
                         <div class="content">
-                            <p>
-                                <img class="image" src="<%= boulders[i].url; %>" />
+                                <% if (boulders[i].url === true) { %>
+                                    <img class="image" src="<%= boulders[i].url; %>" />
+                                <% } else { %>
+                                <% } %>
+                            <p class="boulder-subtitle">
                                 <small><%=boulders[i].location; %></small></br>
                                 <small><time datetime="2021-1-1"><%=boulders[i].date; %></time></small><br></br>
-                            </p>
+                            </p> 
                             <p class="media-text">   
                                 <strong>Rock Face:</strong>
                                 <% if (boulders[i].slab === true) { %>
@@ -51,7 +53,9 @@
                                     overhung
                                 <% } else { %>
                                 <% } %>
-                                <br></br>
+                                </br>
+                            </p>
+                            <p class="media-text">
                                 <strong>Holds:</strong>&ensp;
                                 <% if (boulders[i].jugs === true) { %>
                                     jugs &ensp;
@@ -85,7 +89,9 @@
                                     aretes &ensp;
                                 <% } else { %>
                                 <% } %>
-                                <br></br>
+                                </br>
+                            </p>
+                            <p class="media-text">
                                 <strong>Techniques Used:</strong>&ensp; 
                                 <% if (boulders[i].edging === true) { %>
                                     edging &ensp;
@@ -147,6 +153,7 @@
                                     locking-off
                                 <% } else { %>
                                 <% } %>
+                            
                             </p>   
                         </div>
                     </div>

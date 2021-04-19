@@ -20,8 +20,10 @@ h1 {
     margin: 25% 10px 25px 10px;
 }
 
-#climbs-title {
-    padding: 10px 10px 10px 10px;
+.boulder-subtitle {
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    margin: 5% auto 0% auto;
 }
 
 #update-title {
@@ -67,7 +69,8 @@ button {
 
 .media-text {
     text-align: left;
-    margin: auto 5% 5% 5%;
+    margin: 0px 5% 0px 20%;
+    text-indent: -20%;
 }
 
 .section {

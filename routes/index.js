@@ -53,7 +53,6 @@ router.get("/auth/signup", (req, res) => {
 router.post("/auth/signup", async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(10)
-        console.log(req.body)
         // hash the password
         req.body.password = await bcrypt.hash(req.body.password, salt)
         console.log(req.body)
@@ -258,10 +257,10 @@ router.put("/climbs/id", isAuthorized, async (req, res) => {
     const index = user.boulders.findIndex((boulder) => {
         return req.params.id === `${boulder._id}`
     })
-    user.boulders[index] = {...user.boulders[index], ...req.body}
-    user.save()
-    res.render("/show", {
-        boulder: req.user.boulders
+    user.boulders[index].push = {...user.boulders[index], ...req.body}
+    await user.save();
+    res.redirect("/climbs", {
+        boulder: user.boulders[index]
     })
 });
 
@@ -404,13 +403,13 @@ router.post("/climbs", isAuthorized, async (req, res) => {
 });
 
 // EDIT
-router.get("/climbs/:id/edit", (req, res) => {
+router.get("/climbs/:id/edit", isAuthorized, async (req, res) => {
     const user = req.user
     const index = user.boulders.findIndex((boulder) => {
         return req.params.id === `${boulder._id}`
     })
-    res.render("/climbs/:id/edit", {
-        boulder: index
+    res.render("edit", {
+        boulder: user.boulders[index]
     })
 });
 
@@ -422,7 +421,7 @@ router.get("/climbs/:id", isAuthorized, async (req, res) => {
         return req.params.id === `${boulder._id}`
     })
     res.render("show", {
-        boulder: index
+        boulder: user.boulders[index]
     })
 });
 
