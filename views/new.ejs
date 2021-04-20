@@ -8,10 +8,10 @@
 
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header") %>
-        <main>
-            <div class="new-problem">
+        <main class="hero has-background-white-ter is-fullheight">
+            <div class="notification has-background-whiter">
               <div class="notification has-background-whiter">
-              <h1 class="title is-3">new problem</h1>
+              <h1 class="title is-3" id="climb-form">new problem</h1>
             <form action="/climbs" method="POST">
             <input type="text" placeholder="upload photo" name="url" /><br></br>
             <strong>Name:</strong> <input type="text" name="name" /></br>
@@ -75,7 +75,7 @@
                 </div>
                 </div>
                 <br></br>
-            <input type="submit" name="" value="Add Problem"/><br></br>
+            <input class="button is-rounded is-smaller" type="submit" name="" value="Add Problem"/><br></br>
         </form>
         </div>
         </div>

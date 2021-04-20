@@ -20,6 +20,12 @@ h1 {
     margin: 25% 10px 25px 10px;
 }
 
+#climb-form {
+    font-family: 'Manrope', sans-serif;
+    text-align: center;
+    margin: 25px 10% 25px 10%; 
+}
+
 .boulder-subtitle {
     font-family: 'Manrope', sans-serif;
     text-align: center;
@@ -82,7 +88,7 @@ button {
     margin: auto 5% auto 5%;
 }
 
-img {
+.image {
     width: 275px;
     height: 275px;
     object-fit: cover;

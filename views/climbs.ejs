@@ -7,18 +7,16 @@
 
         <!-- THE HEADER TAG PARTIAL -->
         <%- include("partials/header") %>
-        <section class="hero is-smaller has-background-grey-light">
+        <section class="hero is-smaller has-background-grey-lighter">
             <div class="hero-body">
-              <p class="title" id="start-sub">
-                My Boulder Problems
+              <p class="title center" id="start-sub">
+                my boulder problems
               </p>
             </div>
         </section>
         <section class="hero is-small has-background-white-ter">
             <div class="hero-body">
-              <p class="title" id="start-sub">
-                <a href="/climbs/new">new climb</a>&emsp;&emsp;
-              </p>
+              <p class="title" id="start-sub"></p>
             </div>
         </section>
         <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-around">
@@ -153,28 +151,10 @@
                             
                             </p>   
                         </div>
-                    </div>
-                    <nav class="level is-mobile">
-                        <div class="level-left">
-                          <a class="level-item" aria-label="reply">
-                            <span class="icon is-small">
-                              <i class="fas fa-reply" aria-hidden="true"></i>
-                            </span>
-                          </a>
-                          <a class="level-item" aria-label="retweet">
-                            <span class="icon is-small">
-                              <i class="fas fa-retweet" aria-hidden="true"></i>
-                            </span>
-                          </a>
-                          <a class="level-item" aria-label="like">
-                            <span class="icon is-small">
-                              <i class="fas fa-heart" aria-hidden="true"></i>
-                            </span>
-                          </a>
-                        </div>
-                    </nav>          
+                    </div>         
                 </div>
             <% } %>
+            <button class="button is-rounded is-smaller center"><a href="/climbs/new">add new climb</a></button><br></br>
         </div>
         <!-- THE HEAD TAG PARTIAL -->
             <%- include("partials/footer") %>

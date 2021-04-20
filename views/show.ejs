@@ -7,13 +7,12 @@
         <title></title>
     </head>
     <body>
-        <h1>Entries Show Page</h1>        
-        <div class="box">
-            <article class="media">       
-                <div class="media-content">
+        <main class="hero has-background-white-ter is-fullheight">
+            <div class="notification has-background-whiter">
+              <div class="notification has-background-whiter">       
                     <div class="content">
                         <p>
-                            <strong><%=boulder?.name; %></strong>  <%=boulder?.grade; %></br>    
+                            <h1 class="title is-3"><strong><%=boulder?.name; %></strong>&nbsp;&nbsp;<%=boulder?.grade; %></h1>
                             <small><%=boulder?.location; %></small><br></br>
                             <img class="image" src="<%= boulder?.url; %>" /></br>
                             <strong>Rock Face:</strong></br>
@@ -104,10 +103,10 @@
                 </div>
             </article>
         </div>  
-        <a href="/climbs/<%=boulder._id; %>/edit">edit</a>
+        <button class="button is-rounded is-smaller"><a href="/climbs/<%=boulder._id; %>/edit">edit</a></button>
         <!--  ADD DELETE FORM HERE-->
-        <form action="/climbs/<%= boulder._id%>?_method=DELETE" method="POST">
-            <input type="submit" value="DELETE"/>
+        <button class="button is-rounded is-smaller"><form action="/climbs/<%= boulder._id%>?_method=DELETE" method="POST">
+            <input type="submit" value="delete"/></button>
         </form>
         <br></br>
 
