@@ -1,4 +1,4 @@
-# BetaBot
+# betaBot
 
 **Author:** Veronica Bangs
 
